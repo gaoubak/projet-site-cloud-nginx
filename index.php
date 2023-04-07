@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }        
 }
 
+
 function user_create($username, $password) {
     $user = shell_exec("sudo useradd -m -p $password $username");
     echo "User $username created with password $password";
@@ -41,5 +42,6 @@ function user_create($username, $password) {
 
             <input type="submit" value="S'inscrire" />
         </form>
+        <a href="login.php">Se connecter</a>
     </body>
 </html>

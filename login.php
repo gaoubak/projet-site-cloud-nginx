@@ -7,6 +7,9 @@ if ($_SERVER['POST']) {
     $output = shell_exec("sudo ssh $username@$password");
     echo "User $username logged in";
 
+    shell_exec("cd /home/$username; sudo touch index.php; echo '<?php phpinfo(); ?>' > index.php");
+    echo "User $username index.php created";
+
     header("Location: /home/$username");
     exit;
 }
@@ -15,7 +18,7 @@ if ($_SERVER['POST']) {
 <html>
 
 <head>
-    <title>Formulaire de connexion</title>
+    <title>Formulaire de connexion pour vous permettre d'upload vos fichiers</title>
 </head>
     <body>
         <form action="login.php" method="post">
